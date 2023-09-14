@@ -24,20 +24,22 @@
 	}
 
 	function checkCookie() {
-	  let user = getCookie("username");
-	  if (user != "") {
-	    alert("Welcome again " + user);
+	  let parentUserName = getCookie("parentUserName");
+	  let iFrameUserName = getCookie("iFrameUserName");
+	  if (parentUserName != "") {
+	    alert("Welcome again parentUserName=" + parentUserName);
+	    alert("Welcome again iFrameUserName=" + iFrameUserName);
 	  } else {
-	    user = prompt("Please enter your name:", "");
-	    if (user != "" && user != null) {
-	      setCookie("username", user, 365);
+	    parentUserName = prompt("Please enter your name:", "");
+	    if (parentUserName != "" && parentUserName != null) {
+	      setCookie("username", parentUserName, 365);
 	    }
 	  }
 	}</script>
 <body onload="checkCookie()">
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<h1>My Parent Window</h1>
+<p>My Parent Window text</p>
 
 </body>
 <iframe src="https://iframecrossdomaincookietest.pages.dev/iFrameCookieTest" name="iframe_a" title="Iframe Example"></iframe>
